@@ -1,0 +1,167 @@
+body{
+    background: rgba(0,0,0,0.9);
+    margin: 0;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.showcase{
+    &::after{
+        content: "";
+        height: 100vh;
+        // width: 100%; //because display: block takes the whole width?
+        background-image: url("../images/showcase_large_grey.jpg");
+        background-repeat: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        display: block;
+        filter: blur(18px);
+        transition: all 1000ms;
+
+        // Small screens
+        @media(max-width: 560px){
+            height: 50vh;
+        }
+    }
+    
+    &:hover{
+        &::after{
+            filter: blur(0px);
+        }
+
+        .content{
+            // opacity: 0.5;
+            filter: blur(3px);
+        }
+    }
+}
+
+.content{ //this is logo and Welcome text and lorem text
+    // border: 1px solid red;
+    position: absolute;
+    z-index: 1;
+    top: 10%;
+    left: 50%;
+    margin-top: 105px;
+    margin-left: -145px;
+    width: 300px;
+    height: 350px;
+    text-align: center;
+    // opacity: 1;
+    transition: all 1000ms;
+
+    // Small screens
+    @media(max-width: 560px){
+        top: 5%;
+        margin-top: 5px;
+    }
+    
+    // Landscape
+    @media(max-height: 500px){
+        top: 0;
+    }
+
+    .logo{
+        // border: 1px solid red;
+        height: 180px;
+        width: 180px;
+
+        // Small screens
+        @media(max-width: 560px){
+            height: 140px;
+            width: 140px;
+        }
+    }
+
+    .title{
+        font-size: 2.2rem;
+        margin-top: 1rem;
+
+        // Landscape
+        @media(max-height: 500px){
+            display: none;
+        }
+    }
+
+    .text{
+        line-height: 1.7;
+        margin-top: 1rem;
+        
+        // Small screens
+        @media(max-width: 560px){
+            display: none;
+        }
+        // Landscape
+        @media(max-height: 500px){
+            display: none;
+        }
+    }
+}
+
+.container{
+    max-width: 100%;
+    margin: auto;
+    overflow: hidden;
+    padding: 4rem 1rem;
+}
+
+.grid-3{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(3, 1fr);
+    // grid-template-columns: 1fr 1fr 1fr; //longer syntax
+        
+    // Small screens
+    @media(max-width: 560px){
+        grid-template-columns: 1fr;
+    }
+}
+
+.grid-2{
+    display: grid;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+
+    // Small screens
+    @media(max-width: 560px){
+        grid-template-columns: 1fr;
+    }
+}
+
+.center{
+    text-align: center;
+    margin: auto;
+}
+
+.bg-light{
+    background: #f4f4f4;
+    color: #333;
+
+}
+
+.bg-dark{
+    background: rgba(0,0,0,0.9);
+    // background: #333;
+    color: #f4f4f4;
+}
+
+footer{
+    padding: 2.2rem;
+    p{
+        margin: 0;
+    }
+}
+
+.white_logo{
+    filter: invert(1); //to make logos white
+}
+
+.services{
+    div{
+        // Small screens
+        @media(max-width: 560px){
+            border-bottom: #333 dashed 1px;
+            padding: 1.2rem 1rem;
+        }
+    }
+}
